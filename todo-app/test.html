@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Test</title>
+</head>
+<body>
+    <h1>JavaScript Test Page</h1>
+    
+    <div>
+        <input type="text" id="newListName" placeholder="Enter list name..." maxlength="50">
+        <button id="createListBtn">Create List</button>
+    </div>
+    
+    <div id="output"></div>
+    
+    <script>
+        // Simple test to see if JavaScript is working
+        console.log('JavaScript is loading!');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM is loaded!');
+            
+            const newListNameInput = document.getElementById('newListName');
+            const createListBtn = document.getElementById('createListBtn');
+            const output = document.getElementById('output');
+            
+            console.log('Elements found:', {
+                newListNameInput: !!newListNameInput,
+                createListBtn: !!createListBtn,
+                output: !!output
+            });
+            
+            if (createListBtn) {
+                createListBtn.addEventListener('click', function() {
+                    console.log('Button clicked!');
+                    const listName = newListNameInput.value;
+                    output.innerHTML = '<p>List name: ' + listName + '</p>';
+                });
+                console.log('Event listener added to button');
+            } else {
+                console.error('Button not found!');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Multi-List To-Do App</title>
+    <meta name="description" content="Organize your tasks with multiple customizable to-do lists. Create, edit, and manage your productivity with ease.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Dashboard View -->
+    <main id="dashboardView" class="view active" role="main">
+        <div class="container">
+            <header class="app-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <h1>TaskFlow</h1>
+                        <p class="app-subtitle">Organize your tasks with multiple lists</p>
+                    </div>
+                    <div class="header-right">
+                        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+                            <span class="theme-icon light-icon">☀️</span>
+                            <span class="theme-icon dark-icon">🌙</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Create New List Section -->
+            <section class="create-list-section" aria-labelledby="create-list-heading">
+                <h2 id="create-list-heading">Create New List</h2>
+                <form class="input-section" role="form" aria-label="Create new to-do list">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="newListName" 
+                            name="listName"
+                            placeholder="Enter list name..." 
+                            maxlength="50"
+                            aria-label="List name"
+                            required>
+                        <button 
+                            type="submit" 
+                            id="createListBtn" 
+                            class="btn-primary"
+                            aria-label="Create new list">
+                            <span class="btn-icon">➕</span>
+                            Create List
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Lists Display Section -->
+            <section class="lists-section" aria-labelledby="lists-heading">
+                <h2 id="lists-heading">Your Lists</h2>
+                <div id="listsContainer" class="lists-grid" role="grid" aria-label="To-do lists">
+                    <!-- Lists will be dynamically added here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Individual List View -->
+    <main id="listView" class="view" role="main">
+        <div class="container">
+            <!-- Header with navigation and list name -->
+            <header class="list-header">
+                <nav class="list-navigation">
+                    <button 
+                        id="backToDashboard" 
+                        class="back-btn"
+                        aria-label="Back to dashboard">
+                        <span class="btn-icon">←</span>
+                        Back to Lists
+                    </button>
+                </nav>
+                <div class="list-title-section">
+                    <h1 id="currentListName" aria-label="Current list name">List Name</h1>
+                    <button 
+                        id="editListNameBtn" 
+                        class="edit-list-name-btn"
+                        aria-label="Edit list name">
+                        <span class="btn-icon">✏️</span>
+                        Edit Name
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Task Input Section -->
+            <section class="task-input-section" aria-labelledby="add-task-heading">
+                <h2 id="add-task-heading" class="visually-hidden">Add New Task</h2>
+                <form class="input-section" role="form" aria-label="Add new task">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="taskInput" 
+                            name="taskText"
+                            placeholder="Add a new task..." 
+                            maxlength="100"
+                            aria-label="Task description"
+                            required>
+                        <button 
+                            type="submit" 
+                            id="addTaskBtn" 
+                            class="btn-primary"
+                            aria-label="Add task">
+                            <span class="btn-icon">➕</span>
+                            Add Task
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Tasks Container -->
+            <section class="tasks-section" aria-labelledby="tasks-heading">
+                <h2 id="tasks-heading" class="visually-hidden">Tasks</h2>
+                <div class="tasks-container">
+                    <ul id="taskList" role="list" aria-label="Task list">
+                        <!-- Tasks will be dynamically added here -->
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- List Actions -->
+            <footer class="list-actions">
+                <button 
+                    id="deleteListBtn" 
+                    class="delete-list-btn"
+                    aria-label="Delete this list and all its tasks">
+                    <span class="btn-icon">🗑️</span>
+                    Delete This List
+                </button>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div 
+        id="confirmModal" 
+        class="modal" 
+        role="dialog" 
+        aria-modal="true" 
+        aria-labelledby="modalTitle"
+        aria-describedby="modalMessage">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirm Action</h3>
+            <p id="modalMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button 
+                    id="confirmYes" 
+                    class="btn-primary"
+                    aria-label="Confirm action">
+                    Yes
+                </button>
+                <button 
+                    id="confirmNo" 
+                    class="btn-secondary"
+                    aria-label="Cancel action">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner" role="status" aria-label="Loading">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
