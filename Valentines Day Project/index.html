@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers Meter 🌸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Screen -->
+        <div id="main-screen" class="screen active">
+            <div class="card">
+                <p class="intro">Running a very serious experiment…</p>
+                <h1 class="headline">How many flowers do you deserve?</h1>
+                
+                <div class="progress-container">
+                    <div class="progress-track">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <p id="progress-label" class="progress-label">0% full bouquet</p>
+                </div>
+
+                <div class="bouquet-container">
+                    <div id="visual-bouquet" class="visual-bouquet">
+                        <!-- Flowers will be added here dynamically -->
+                    </div>
+                    <p id="flower-count" class="flower-count">0 flowers</p>
+                </div>
+                
+                <button id="grow-button" class="primary-button">
+                    Tap to grow the bouquet 🌸
+                </button>
+                
+                <p id="dynamic-message" class="message">A couple flowers… cute.</p>
+            </div>
+        </div>
+
+        <!-- Cookie Screen -->
+        <div id="cookie-screen" class="screen">
+            <div class="card cookie-card">
+                <div class="cookie-emoji">🍪</div>
+                <h1 class="cookie-headline">Wait, one more important question...</h1>
+                <p class="cookie-subheadline">I know we just had a cheat day, but... do you want a Dolce cookie?</p>
+                
+                <div class="cookie-buttons">
+                    <button class="choice-button" data-cookie="Yes please! 🍪">Yes please! 🍪</button>
+                    <button class="choice-button" data-cookie="Always yes to Dolce 😋">Always yes to Dolce 😋</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reveal Screen -->
+        <div id="reveal-screen" class="screen">
+            <div class="card reveal-card">
+                <div class="valentine-photo">
+                    <img src="cookie-photo.png" alt="Us enjoying cookies together" class="photo-img">
+                </div>
+                <h1 class="reveal-headline">You deserve all the flowers in the world.</h1>
+                <p class="reveal-subheadline">And cookies, and everything beautiful.Will you be my Valentine?</p>
+                
+                <div id="choice-buttons" class="choice-buttons">
+                    <button class="choice-button" data-choice="Yes 💐">Yes 💐</button>
+                    <button class="choice-button" data-choice="Obviously yes 😌">Obviously yes 😌</button>
+                </div>
+                
+                <p id="final-message" class="final-message hidden">Perfect! I'm coming with the flowers and cookie right now.</p>
+            </div>
+        </div>
+
+        <!-- Animation Container -->
+        <div id="animation-container" class="animation-container"></div>
+    </div>
+
+    <footer class="footer">
+        <p>Made with love by dlo</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
